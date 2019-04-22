@@ -4,14 +4,17 @@ ENV CC=/usr/bin/clang \
     CXX=/usr/bin/clang++ \
     OPENCV_VERSION=3.4.5.20
 
-RUN echo -e '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing\n\
-http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
+RUN echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/main' >> /etc/apk/repositories
+RUN echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories
+
+#RUN echo -e '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing\n\
+#http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
 
 RUN apk add -U \
       # --virtual .runtime-dependencies \
         #Intel® TBB, a widely used C++ template library for task parallelism'
-        libtbb@testing \
-        libtbb-dev@testing \
+        #libtbb@testing \
+        #libtbb-dev@testing \
         # Wrapper for libjpeg-turbo
         libjpeg  \
         openblas \
