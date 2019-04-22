@@ -10,37 +10,24 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/
 #RUN echo -e '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing\n\
 #http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
 
-RUN apk add -U \
-      # --virtual .runtime-dependencies \
-        #Intel® TBB, a widely used C++ template library for task parallelism'
-        #libtbb@testing \
-        #libtbb-dev@testing \
-        # Wrapper for libjpeg-turbo
-        libjpeg  \
-        openblas \
-        #jasper \
-    && apk add -U \
-      --virtual .build-dependencies \
-        build-base \
-        openblas-dev \
-        unzip \
-        wget \
-        cmake \
-        # accelerated baseline JPEG compression and decompression library
-        libjpeg-turbo-dev \
-        # Portable Network Graphics library
-        libpng-dev \
-        # A software-based implementation of the codec specified in the emerging JPEG-2000 Part-1 standard (development files)
-        jasper-dev \
-        # Provides support for the Tag Image File Format or TIFF (development files)
-        tiff-dev \
-        # Libraries for working with WebP images (development files)
-        libwebp-dev \
-        # A C language family front-end for LLVM (development files)
-        clang-dev \
-        linux-headers \
-    && pip install numpy \
-    && mkdir /opt \
+#Intel® TBB, a widely used C++ template library for task parallelism'
+#RUN apk add -U libtbb@testing libtbb-dev@testing
+
+# poppler-utils install
+RUN apk add -U poppler-utils
+
+# Wrapper for libjpeg-turbo
+RUN apk add -U libjpeg openblas jasper
+RUN apk add -U --virtual .build-dependencies build-base openblas-dev unzip wget cmake
+
+# accelerated baseline JPEG compression and decompression library and other code libraries
+RUN apk add libjpeg-turbo-dev libpng-dev jasper-dev tiff-dev libwebp-dev clang-dev linux-headers
+
+# Python packages
+RUN pip install numpy
+
+# OpenCV installation
+RUN mkdir /opt \
     && cd /opt \
     && wget --quiet https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
     && unzip ${OPENCV_VERSION}.zip \
@@ -72,5 +59,4 @@ RUN apk add -U \
     && make install \
     && rm -rf /opt/opencv-${OPENCV_VERSION} \
     && apk del .build-dependencies \
-    && rm -rf /var/cache/apk/* \
-    && apk add -U poppler-utils
+    && rm -rf /var/cache/apk/*
