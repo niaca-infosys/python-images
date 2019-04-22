@@ -6,7 +6,7 @@ RUN apt-get install poppler-utils -y
 
 # Python packages
 RUN pip install numpy
-RUN pip install opencv-python<4.0
+RUN pip install opencv-python==3.4
 RUN pip list
 
 RUN rm -rf /var/cache/apt/*
