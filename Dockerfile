@@ -2,7 +2,7 @@ FROM python:3.6-alpine
 
 ENV CC=/usr/bin/clang \
     CXX=/usr/bin/clang++ \
-    OPENCV_VERSION=3.4.5.20
+    OPENCV_VERSION=3.4.6
 
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/main' >> /etc/apk/repositories
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories
@@ -33,8 +33,9 @@ RUN mkdir -p /opt \
     && unzip ${OPENCV_VERSION}.zip \
     && rm -rf ${OPENCV_VERSION}.zip \
     && mkdir -p /opt/opencv-${OPENCV_VERSION}/build \
-    && cd /opt/opencv-${OPENCV_VERSION}/build \
-    && cmake \
+    && cd /opt/opencv-${OPENCV_VERSION}/build 
+
+RUN cmake \
       -D CMAKE_BUILD_TYPE=RELEASE \
       -D CMAKE_INSTALL_PREFIX=/usr/local \
       -D WITH_FFMPEG=NO \
