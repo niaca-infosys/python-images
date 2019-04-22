@@ -69,5 +69,5 @@ RUN apk add -U \
     && make install \
     && rm -rf /opt/opencv-${OPENCV_VERSION} \
     && apk del .build-dependencies \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
     && apk add -U poppler-utils
