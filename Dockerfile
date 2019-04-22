@@ -25,6 +25,8 @@ RUN apk add libjpeg-turbo-dev libpng-dev jasper-dev tiff-dev libwebp-dev clang-d
 
 # Python packages
 RUN pip install numpy
+RUN ls /usr/local/lib/python3.6/site-packages/
+RUN ls /usr/local/lib/python3.6/site-packages/numpy/core
 
 # OpenCV installation
 RUN mkdir -p /opt \
