@@ -28,3 +28,6 @@ RUN pip install numpy
 
 # OpenCV installation
 RUN pip install opencv-python==3.4.5.20
+
+# Purge cache
+RUN rm -rf /var/cache/apk/*
