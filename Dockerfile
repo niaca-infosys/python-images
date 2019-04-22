@@ -27,4 +27,4 @@ RUN apk add libjpeg-turbo-dev libpng-dev jasper-dev tiff-dev libwebp-dev clang-d
 RUN pip install numpy
 
 # OpenCV installation
-RUN pip install opencv-python
+RUN pip install opencv-python==3.4.5.20
