@@ -27,7 +27,7 @@ RUN apk add libjpeg-turbo-dev libpng-dev jasper-dev tiff-dev libwebp-dev clang-d
 RUN pip install numpy
 
 # OpenCV installation
-RUN mkdir /opt \
+RUN mkdir -p /opt \
     && cd /opt \
     && wget --quiet https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
     && unzip ${OPENCV_VERSION}.zip \
