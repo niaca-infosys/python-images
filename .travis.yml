@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t python-images-test .
+
+script:
+  - docker run python-images-test /bin/bash -c "pdftoppm -v"
