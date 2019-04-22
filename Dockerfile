@@ -30,7 +30,7 @@ RUN pip install numpy
 RUN mkdir -p /opt \
     && cd /opt \
     && wget --quiet https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
-    && unzip ${OPENCV_VERSION}.zip \
+    && unzip -q ${OPENCV_VERSION}.zip \
     && rm -rf ${OPENCV_VERSION}.zip \
     && mkdir -p /opt/opencv-${OPENCV_VERSION}/build \
     && cd /opt/opencv-${OPENCV_VERSION}/build 
