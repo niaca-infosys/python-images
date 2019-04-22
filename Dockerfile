@@ -4,8 +4,8 @@ ENV CC=/usr/bin/clang \
     CXX=/usr/bin/clang++ \
     OPENCV_VERSION=3.4.5.20
 
-RUN echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/main' >> /etc/apk/repositories
-RUN echo http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/main' >> /etc/apk/repositories
+RUN echo 'http://dl-cdn.alpinelinux.org/alpine/latest-stable/community' >> /etc/apk/repositories
 
 #RUN echo -e '@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing\n\
 #http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories
