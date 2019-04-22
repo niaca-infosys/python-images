@@ -18,7 +18,7 @@ RUN apk add -U \
         # Wrapper for libjpeg-turbo
         libjpeg  \
         openblas \
-        jasper \
+        #jasper \
     && apk add -U \
       --virtual .build-dependencies \
         build-base \
