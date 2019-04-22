@@ -1,7 +1,8 @@
 FROM python:3.6-slim
 
 # poppler-utils install
-RUN apt install poppler-utils
+RUN apt-get update && apt-get install -y
+RUN apt-get install poppler-utils -y
 
 # Python packages
 RUN pip install numpy
