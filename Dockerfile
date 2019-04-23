@@ -2,7 +2,7 @@ FROM python:3.6-slim
 
 # poppler-utils install
 RUN apt-get update && apt-get install -y
-RUN apt-get install -y poppler-utils libglib2.0
+RUN apt-get install -y poppler-utils libglib2.0 libsm6 libxext6 
 
 # Python packages
 RUN pip install numpy
