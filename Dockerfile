@@ -15,6 +15,7 @@ RUN export SWIG_PATH=/sw/swigtool/bin && export PATH=$SWIG_PATH:$PATH
 RUN pip install numpy
 RUN pip install opencv-python==3.4.5.20
 RUN pip install pdf2image
+RUN pip install jamspell
 RUN pip list
 
 RUN rm -rf /var/cache/apt/*
