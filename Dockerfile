@@ -5,7 +5,10 @@ RUN apt-get update && apt-get install -y
 RUN apt-get install -y poppler-utils libglib2.0 libsm6 libxext6 
 
 # swig install
-RUN apt-get install -y gcc-5 g++ libpcre3 libpcre3-dev wget
+RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list.d/unstable.list
+RUN apt-get update
+RUN apt-get install -t unstable gcc-5
+RUN apt-get install -y g++ libpcre3 libpcre3-dev wget
 RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar -xzvf swig-3.0.12.tar.gz
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
 RUN export SWIG_PATH=/sw/swigtool/bin && export PATH=$SWIG_PATH:$PATH
