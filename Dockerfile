@@ -10,6 +10,7 @@ RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swi
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
 RUN export SWIG_PATH=/sw/swigtool/bin && export PATH=$SWIG_PATH:$PATH
 
+RUN echo $SWIG_PATH
 RUN echo $PATH
 RUN swig -version
 
