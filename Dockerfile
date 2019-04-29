@@ -8,7 +8,7 @@ RUN apt-get install -y poppler-utils libglib2.0 libsm6 libxext6
 RUN apt-get install -y gcc-6 g++ libpcre3 libpcre3-dev wget build-essential
 RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar -xzvf swig-3.0.12.tar.gz
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
-ENV SWIG_PATH="/sw/swigtool/bin:${PATH}"
+ENV PATH="/sw/swigtool/bin:${PATH}"
 
 RUN echo $PATH
 RUN swig -version
