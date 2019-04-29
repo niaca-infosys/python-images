@@ -4,16 +4,8 @@ FROM python:3.6-slim
 RUN apt-get update && apt-get install -y
 RUN apt-get install -y poppler-utils libglib2.0 libsm6 libxext6 
 
-# gcc-5 install
-RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list.d/testing.list
-RUN echo "Package: *" >> /etc/apt/preferences.d/testin
-RUN echo "Pin: release a=testing" >> /etc/apt/preferences.d/testin
-RUN echo "Pin-Priority: 100" >> /etc/apt/preferences.d/testin
-RUN apt-get update
-RUN apt-get install -t testing gcc-5
-
 # swig install
-RUN apt-get install -y g++ libpcre3 libpcre3-dev wget
+RUN apt-get install -y gcc-6 g++ libpcre3 libpcre3-dev wget
 RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar -xzvf swig-3.0.12.tar.gz
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
 RUN export SWIG_PATH=/sw/swigtool/bin && export PATH=$SWIG_PATH:$PATH
