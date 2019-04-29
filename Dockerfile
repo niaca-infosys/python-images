@@ -10,9 +10,6 @@ RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swi
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
 ENV PATH="/sw/swigtool/bin:${PATH}"
 
-RUN echo $PATH
-RUN swig -version
-
 # Python packages
 RUN pip install numpy
 RUN pip install opencv-python==3.4.5.20
