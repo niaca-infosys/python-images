@@ -5,9 +5,12 @@ RUN apt-get update && apt-get install -y
 RUN apt-get install -y poppler-utils libglib2.0 libsm6 libxext6 
 
 # swig install
-RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list.d/unstable.list
+RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list.d/testing.list
+RUN echo "Package: *
+Pin: release a=testing
+Pin-Priority: 100" >> /etc/apt/preferences.d/testin
 RUN apt-get update
-RUN apt-get install -t unstable gcc-5
+RUN apt-get install -t testing gcc-5
 RUN apt-get install -y g++ libpcre3 libpcre3-dev wget
 RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar -xzvf swig-3.0.12.tar.gz
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
