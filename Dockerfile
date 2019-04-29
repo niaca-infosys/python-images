@@ -6,7 +6,8 @@ RUN apt-get install -y poppler-utils libglib2.0 libsm6 libxext6
 
 # swig install
 RUN apt-get install -y gcc-6 g++ libpcre3 libpcre3-dev wget build-essential locales
-RUN dpkg-reconfigure locales
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+Run locale-gen
 RUN mkdir /install && cd /install && wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar -xzvf swig-3.0.12.tar.gz
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
 ENV PATH="/sw/swigtool/bin:${PATH}"
