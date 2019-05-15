@@ -9,3 +9,4 @@ libpcre3-dev
 wget
 build-essential
 locales
+unpaper
