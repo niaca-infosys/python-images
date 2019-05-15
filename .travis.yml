@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t python-images-test .
+  - docker build -t python-images-test -f python36-slim.Dockerfile .
 
 script:
   - docker run python-images-test /bin/bash -c "pdftoppm -v"
