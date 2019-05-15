@@ -18,5 +18,10 @@ ENV PATH="/sw/swigtool/bin:${PATH}"
 
 # Install python packages
 WORKDIR /install
-COPY python/requirements.txt /install/
+COPY python36/requirements.txt /install/
 RUN pip install -r requirements.txt
+
+# tests
+RUN python --version
+RUN pip list
+RUN unpaper version
