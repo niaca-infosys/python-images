@@ -1,0 +1,11 @@
+poppler-utils
+libglib2.0
+libsm6
+libxext6 
+gcc-6
+g++
+libpcre3
+libpcre3-dev
+wget
+build-essential
+locales
