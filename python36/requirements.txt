@@ -1,0 +1,4 @@
+pdf2image
+numpy
+opencv-python==3.4.5.20
+jamspell
