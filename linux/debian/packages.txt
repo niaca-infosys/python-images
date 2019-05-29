@@ -8,5 +8,6 @@ libsm6
 libxext6 
 locales
 poppler-utils
+tesseract-ocr
 unpaper
 wget
