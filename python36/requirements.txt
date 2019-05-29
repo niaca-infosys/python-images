@@ -6,6 +6,9 @@ opencv-python==3.4.5.20
 pandas
 pdf2image
 pillow
-requests
-scikit-learn 
+requests 
 scipy
+scikit-learn
+scikit-image
+pytorch
+pytesseract
