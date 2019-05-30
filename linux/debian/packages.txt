@@ -2,9 +2,12 @@ build-essential
 g++
 gcc-6
 libglib2.0
+libicu52
+liblept5
 libpcre3
 libpcre3-dev
 libsm6
+libtesseract4
 libxext6 
 locales
 poppler-utils
