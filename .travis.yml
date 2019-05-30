@@ -8,3 +8,4 @@ before_install:
 
 script:
   - docker run python-images-test /bin/bash -c "pdftoppm -v && tesseract --version"
+  - docker images
