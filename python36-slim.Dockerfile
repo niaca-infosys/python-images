@@ -4,19 +4,8 @@ FROM python:3.6-slim
 WORKDIR /install
 RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends wget gnupg2 ca-certificates apt-transport-https && \
     wget -O - https://notesalexp.org/debian/alexp_key.asc | apt-key add - && \
-    echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list && \
-    echo "deb https://notesalexp.org/tesseract-ocr/jessie/ jessie main" >> /etc/apt/sources.list
-
-RUN echo 'Package: * \n\
-Pin: release a=stable \n\
-Pin-Priority: 900 \n\
-\n\
-Package: * \n\
-Pin: release n=jessie \n\
-Pin-Priority: 400' >> /etc/apt/preferences
-
-RUN cat /etc/apt/sources.list
-RUN cat /etc/apt/preferences
+    echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list
+#     echo "deb https://notesalexp.org/tesseract-ocr/jessie/ jessie main" >> /etc/apt/sources.list
 
 # install linux packages
 COPY linux/debian/packages.txt /install/
