@@ -12,7 +12,7 @@ RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends wget gn
 COPY linux/debian/packages.txt /install/
 WORKDIR /install
 RUN apt-get update \
-    && xargs -a packages.txt apt-get install -y --no-install-recommends \
+    && xargs -a packages.txt apt-get install -y --no-install-recommends -t --default-release \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
