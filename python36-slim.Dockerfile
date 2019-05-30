@@ -15,6 +15,9 @@ Package: * \n\
 Pin: release n=jessie \n\
 Pin-Priority: 400' >> /etc/apt/preferences
 
+RUN cat /etc/apt/sources.list
+RUN cat /etc/apt/preferences
+
 # install linux packages
 COPY linux/debian/packages.txt /install/
 WORKDIR /install
