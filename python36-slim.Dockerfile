@@ -7,7 +7,7 @@ RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends wget gn
     echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list && \
     echo "deb https://notesalexp.org/tesseract-ocr/jessie/ jessie main" >> /etc/apt/sources.list
 
-RUN echo $'Package: * \n\
+RUN echo 'Package: * \n\
 Pin: release a=stable \n\
 Pin-Priority: 900 \n\
 \n\
