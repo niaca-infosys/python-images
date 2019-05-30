@@ -18,6 +18,9 @@ RUN wget http://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz && tar -xzvf
 RUN mkdir -p /sw/swigtool && cd /install/swig-3.0.12 && ./configure --prefix=/sw/swigtool && make && make install
 ENV PATH="/sw/swigtool/bin:${PATH}"
 
+# Set python
+RUN cd /usr/local/bin && ln -s /usr/bin/python3 python && ln -s /usr/bin/pip3 pip
+
 # Install python packages
 WORKDIR /install
 COPY python36/requirements.txt /install/
