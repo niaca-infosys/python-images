@@ -3,7 +3,7 @@ FROM python:3.6-slim
 # add repo for tesseract4
 WORKDIR /install
 RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends wget gnupg2 ca-certificates && \
-    wget https://notesalexp.org/debian/alexp_key.asc | apt-key add - && \
+    wget -O - https://notesalexp.org/debian/alexp_key.asc | apt-key add - && \
     echo "deb https://notesalexp.org/tesseract-ocr/jessie/ jessie main" > /etc/apt/sources.list && \
     apt-get purge --autoremove -y curl
 
