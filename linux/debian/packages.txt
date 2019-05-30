@@ -1,7 +1,7 @@
 build-essential
 g++
 gcc-6
-libglib2.0 -t stable
+libglib2.0
 libicu52
 liblept5
 libpcre3
