@@ -2,7 +2,6 @@ build-essential
 g++
 gcc-6
 libglib2.0
-libicu52
 liblept5
 libpcre3
 libpcre3-dev
