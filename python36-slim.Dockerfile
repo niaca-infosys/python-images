@@ -5,7 +5,7 @@ WORKDIR /install
 RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends wget gnupg2 ca-certificates apt-transport-https && \
     wget -O - https://notesalexp.org/debian/alexp_key.asc | apt-key add - && \
     echo "deb https://notesalexp.org/tesseract-ocr/jessie/ jessie main" >> /etc/apt/sources.list && \
-    echo "deb http://http.us.debian.org/debian jessie main contrib non-free" >> /etc/apt/sources.list
+    echo "deb http://http.us.debian.org/debian jessie main" >> /etc/apt/sources.list
 
 
 # install linux packages
