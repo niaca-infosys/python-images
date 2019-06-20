@@ -9,9 +9,16 @@ RUN apt-get update \
     && xargs -a packages.txt apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-RUN wget https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/misc/perluniprops.zip
 RUN mkdir /root/nltk_data
-RUN unzip -d /root/nltk_data/ perluniprops.zip
+RUN mkdir /root/nltk_data/misc
+RUN wget https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/misc/perluniprops.zip
+RUN unzip -d /root/nltk_data/misc/ perluniprops.zip
+RUN mkdir /root/nltk_data/tokenizers
+RUN wget https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/tokenizers/punkt.zip
+RUN unzip -d /root/nltk_data/tokenizers/ punkt.zip
+RUN mkdir /root/nltk_data/corpora
+RUN wget https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/words.zip
+RUN unzip -d /root/nltk_data/corpora/ words.zip
 
 # swig install
 #WORKDIR /install
