@@ -11,4 +11,5 @@ requests
 scipy
 scikit-learn==0.20.2
 scikit-image
-torch
+#torch
+http://download.pytorch.org/whl/cu90/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
