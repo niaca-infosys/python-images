@@ -16,4 +16,5 @@ python3-pip
 python3-setuptools
 tesseract-ocr
 unpaper
+unzip
 wget
