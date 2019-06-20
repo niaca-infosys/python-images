@@ -5,10 +5,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 # install linux packages
 COPY linux/ubuntu/packages.txt /install/
 WORKDIR /install
-#RUN apt-get update \
-#    && xargs -a packages.txt apt-get install -y --no-install-recommends \
-#    && apt-get clean \
-#    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+    && xargs -a packages.txt apt-get install -y --no-install-recommends \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 RUN wget https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/misc/perluniprops.zip
 RUN mkdir /root/nltk_data
 RUN unzip -d /root/nltk_data/ perluniprops.zip
